@@ -1,5 +1,6 @@
 package br.ce.wcaquino.consumer.tasks.pact;
 
+import au.com.dius.pact.consumer.dsl.DslPart;
 import au.com.dius.pact.consumer.dsl.PactDslWithProvider;
 import au.com.dius.pact.consumer.junit.PactProviderRule;
 import au.com.dius.pact.consumer.junit.PactVerification;
@@ -22,6 +23,10 @@ public class TasksConsumerContractTest {
     //public PactProviderRule mockProvider = new PactProviderRule("Tasks", "localhost", 8080, this);
 
     @Pact(consumer = "BasicConsumer")//aquié uma api mockada, diferente do teste unitario
+
+    DslPart body
+
+
     public RequestResponsePact createPact(PactDslWithProvider builder){
         return builder
                 .given("There is a task with id = 1") //Dado
